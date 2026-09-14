@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="BM Bazar — Everything You Need, In One Place"><title>BM Bazar — Online Shopping</title><style>
+:root{--pink:#ff2f75;--pink2:#ff6b9b;--ink:#111318;--muted:#69707d;--bg:#f6f7fb;--card:#fff;--line:#e8eaf0}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+a{text-decoration:none;color:inherit}button{font:inherit}.topbar{background:#111318;color:#fff;text-align:center;padding:8px;font-size:12px;font-weight:700;letter-spacing:.2px}
+header{background:#fff;position:sticky;top:0;z-index:20;box-shadow:0 4px 22px #0000000b}.top{max-width:1240px;margin:auto;padding:17px 22px;display:flex;align-items:center;gap:25px}
+.logo{font-size:30px;font-weight:900;letter-spacing:-1.5px;white-space:nowrap}.logo b{color:var(--pink)}.search{height:46px;flex:1;display:flex;background:#f1f3f7;border:1px solid #e8eaf0;border-radius:14px;overflow:hidden}.search input{border:0;outline:0;background:transparent;width:100%;padding:0 16px;font-size:14px}.search button{width:52px;border:0;background:transparent;cursor:pointer;font-size:18px}
+.actions{display:flex;align-items:center;gap:18px;font-size:13px;font-weight:800}.action{cursor:pointer;white-space:nowrap}.cart{position:relative}.badge{position:absolute;top:-10px;right:-11px;background:var(--pink);color:#fff;border-radius:20px;font-size:10px;padding:3px 6px}
+nav{border-top:1px solid #f0f0f2}.navin{max-width:1240px;margin:auto;padding:12px 22px;display:flex;gap:28px;overflow:auto;white-space:nowrap;font-size:13px;font-weight:800}.navin a:hover{color:var(--pink)}
+.hero{max-width:1240px;margin:22px auto;padding:0 22px}.heroBox{min-height:410px;border-radius:28px;position:relative;overflow:hidden;background:radial-gradient(circle at 85% 20%,#ff6b9b 0,#9f1647 28%,#28121b 65%,#111318 100%);color:#fff;padding:64px 60px;display:flex;align-items:center}.heroBox:after{content:"";position:absolute;width:380px;height:380px;border:70px solid #ffffff10;border-radius:50%;right:-80px;bottom:-150px}.heroText{position:relative;z-index:2;max-width:650px}.eyebrow{display:inline-block;background:#ffffff1c;border:1px solid #ffffff30;padding:8px 12px;border-radius:30px;font-size:11px;font-weight:900;letter-spacing:1px}.hero h1{font-size:52px;line-height:1.03;letter-spacing:-2px;margin:18px 0 14px}.hero p{font-size:17px;color:#eee;max-width:540px;line-height:1.6}.heroBtns{display:flex;gap:12px;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:12px;padding:13px 20px;background:var(--pink);color:#fff;font-weight:900;cursor:pointer}.btn.light{background:#fff;color:#17181d}.heroTag{position:absolute;right:60px;top:65px;z-index:1;font-size:95px;font-weight:1000;opacity:.11;transform:rotate(-8deg)}
+.section{max-width:1240px;margin:38px auto;padding:0 22px}.titleRow{display:flex;justify-content:space-between;align-items:end;margin-bottom:18px}.titleRow h2{font-size:26px;letter-spacing:-.7px}.titleRow p{color:var(--muted);font-size:13px;margin-top:5px}.see{font-size:13px;color:var(--pink);font-weight:900}
+.cats{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}.cat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 10px;text-align:center;font-weight:900;transition:.2s;cursor:pointer}.cat:hover{transform:translateY(-4px);box-shadow:0 10px 28px #0000000c}.cat .icon{width:54px;height:54px;margin:0 auto 11px;display:grid;place-items:center;border-radius:16px;background:#fff0f5;font-size:27px}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.product{background:#fff;border:1px solid var(--line);border-radius:19px;overflow:hidden;transition:.2s}.product:hover{transform:translateY(-4px);box-shadow:0 14px 32px #00000010}.pic{height:235px;background:linear-gradient(135deg,#f1f2f6,#e4e6ed);display:flex;align-items:center;justify-content:center;font-size:75px;position:relative}.pic img{width:100%;height:100%;object-fit:cover;display:block}.pill{position:absolute;z-index:2;top:12px;left:12px;background:#111318;color:#fff;padding:6px 9px;border-radius:8px;font-size:10px;font-weight:900}.heart{position:absolute;right:12px;top:12px;background:#fff;border:0;border-radius:50%;width:34px;height:34px;cursor:pointer}.info{padding:15px}.rating{font-size:11px;margin-bottom:8px}.name{font-size:15px;font-weight:900}.price{margin-top:8px;font-size:19px;font-weight:950}.old{font-size:12px;text-decoration:line-through;color:#999;margin-left:6px;font-weight:500}.add{width:100%;margin-top:13px;padding:11px;border:1px solid var(--pink);color:var(--pink);background:#fff;border-radius:10px;font-weight:900;cursor:pointer}.add:hover{background:var(--pink);color:#fff}
+.deal{background:linear-gradient(100deg,#fff0f5,#fff);border:1px solid #ffd6e3;border-radius:22px;padding:28px 30px;display:flex;align-items:center;justify-content:space-between}.deal h2{font-size:27px}.deal p{color:#666;margin-top:6px;font-size:14px}
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.feature{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}.feature .ico{font-size:24px;margin-bottom:12px}.feature b{display:block;font-size:15px}.feature span{display:block;color:#727784;font-size:12px;line-height:1.5;margin-top:6px}
+.news{background:#111318;color:#fff;border-radius:22px;padding:30px;display:flex;justify-content:space-between;align-items:center;gap:20px}.news h2{font-size:25px}.news p{color:#bbb;font-size:13px;margin-top:6px}.newsletter{display:flex;background:#fff;border-radius:11px;overflow:hidden;min-width:360px}.newsletter input{border:0;outline:0;padding:13px;width:100%}.newsletter button{border:0;background:var(--pink);color:#fff;padding:0 17px;font-weight:900}
+footer{background:#111318;color:#fff;margin-top:42px}.foot{max-width:1240px;margin:auto;padding:42px 22px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:35px}.foot h3{margin-bottom:13px}.foot p,.foot a{display:block;color:#aeb2bb;font-size:13px;margin:9px 0}.copy{text-align:center;border-top:1px solid #292c33;padding:16px;color:#7f838c;font-size:11px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#111318;color:#fff;padding:12px 18px;border-radius:12px;display:none;z-index:50;box-shadow:0 10px 30px #0003}
+@media(max-width:900px){.top{flex-wrap:wrap}.logo{order:1}.actions{order:2;margin-left:auto}.search{order:3;flex-basis:100%}.heroBox{padding:45px 35px}.hero h1{font-size:42px}.heroTag{display:none}.cats{grid-template-columns:repeat(3,1fr)}.products{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:repeat(2,1fr)}.news{align-items:flex-start;flex-direction:column}.newsletter{min-width:0;width:100%}.foot{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.top{padding:13px 14px}.actions{gap:10px;font-size:11px}.hero,.section{padding:0 12px}.heroBox{min-height:390px;padding:34px 25px;border-radius:21px}.hero h1{font-size:36px;letter-spacing:-1.2px}.hero p{font-size:14px}.cats{grid-template-columns:repeat(2,1fr);gap:10px}.products{gap:10px}.pic{height:165px;font-size:58px}.name{font-size:13px}.price{font-size:16px}.deal{padding:22px;display:block}.deal .btn{margin-top:15px}.features{grid-template-columns:1fr}.foot{grid-template-columns:1fr}}
+
+.modal{display:none;position:fixed;inset:0;background:#0009;z-index:100;align-items:center;justify-content:center;padding:18px}.modal.show{display:flex}.modalCard{width:min(460px,100%);background:#fff;border-radius:22px;padding:25px;position:relative;box-shadow:0 25px 70px #0005}.close{position:absolute;right:14px;top:10px;border:0;background:#f1f2f5;border-radius:50%;width:34px;height:34px;font-size:24px;cursor:pointer}.modalTitle{font-size:24px;font-weight:950}.modalSub{color:#6b7280;font-size:13px;margin:6px 0 18px}.modalCard form{display:grid;gap:11px}.modalCard input,.modalCard textarea{width:100%;border:1px solid #dfe2e8;border-radius:10px;padding:12px;outline:0;font-size:14px;font-family:inherit}.modalCard input:focus,.modalCard textarea:focus{border-color:#ff2f75}.codBox{padding:12px;background:#fff2f6;border:1px solid #ffd3e1;border-radius:10px;font-weight:800;font-size:13px}.orderBtn{width:100%}
+</style><style>.upiBox{margin:14px 0;padding:14px;border:1px solid #ffd1df;border-radius:14px;background:#fff7fa;text-align:center}.upiId{margin:8px 0}.qrWrap{margin:10px auto}.qrWrap img{width:190px;height:190px;max-width:100%;background:#fff;padding:8px;border-radius:10px}.upiApp{display:block;text-align:center;margin:10px 0;text-decoration:none}.small{font-size:12px;color:#666;margin:8px}.upiBox input{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;margin-top:6px}</style></head><body><div class="topbar">🔥 FREE DELIVERY ON SELECTED ORDERS • SHOP SMART WITH BM BAZAR</div>
+<header>
+<div class="top">
+  <div class="logo">BM <b>Bazar</b></div>
+  <div class="search"><input id="search" placeholder="Search for products, categories..."><button onclick="searchProduct()">🔎</button></div>
+  <div class="actions"><span class="action">♡ Wishlist</span><span class="action">👤 Account</span><span class="action cart" onclick="showCart()">🛒 Cart <i class="badge" id="count">0</i></span></div>
+</div>
+<nav><div class="navin"><a href="#">Home</a><a href="#shop">Shop</a><a href="#categories">Categories</a><a href="#offers">🔥 Hot Deals</a><a href="#features">Why BM Bazar</a><a href="#contact">Contact</a></div></nav>
+</header>
+
+<section class="hero"><div class="heroBox"><div class="heroText">
+<span class="eyebrow">WELCOME TO BM BAZAR</span>
+<h1>Smart Shopping.<br>Better Prices.</h1>
+<p>Discover trending products, everyday essentials and exciting deals—all in one place.</p>
+<div class="heroBtns"><a class="btn" href="#shop">Shop Now →</a><a class="btn light" href="#offers">View Offers</a></div>
+</div><div class="heroTag">BM<br>BAZAR</div></div></section>
+
+<section class="section" id="categories">
+<div class="titleRow"><div><h2>Shop by Category</h2><p>Find what you need faster</p></div><a class="see" href="#shop">View all →</a></div>
+<div class="cats">
+<div class="cat"><div class="icon">👕</div>Fashion</div><div class="cat"><div class="icon">💄</div>Beauty</div><div class="cat"><div class="icon">📱</div>Electronics</div><div class="cat"><div class="icon">🎒</div>Accessories</div><div class="cat"><div class="icon">🏠</div>Home</div><div class="cat"><div class="icon">✨</div>Trending</div>
+</div></section>
+
+<section class="section" id="shop">
+<div class="titleRow"><div><h2>Trending Products</h2><p>Popular picks customers love</p></div><a class="see" href="#">View all →</a></div>
+<div class="products">
+<div class="product"><div class="pic"><span class="pill">BEST SELLER</span><button class="heart" onclick="toast('Added to wishlist ❤️')">♡</button><a href="product.html?product=watch"><img src="watch.jpg" alt="Rose Gold Elegant Ladies Watch"></a></div><div class="info"><div class="rating">⭐ 4.8 (124)</div><a class="name" href="product.html?product=watch">Rose Gold Elegant Ladies Watch</a><div class="price">₹799 <span class="old">₹1,499</span></div><button class="add" onclick="openOrder('Rose Gold Elegant Ladies Watch')">Buy Now — UPI</button></div></div>
+<div class="product"><div class="pic"><span class="pill">NEW ARRIVAL</span><button class="heart" onclick="toast('Added to wishlist ❤️')">♡</button><a href="product.html?product=payal"><img src="payal.jpg" alt="Silver Payal (Anklet)"></a></div><div class="info"><div class="rating">⭐ 4.8 (124)</div><a class="name" href="product.html?product=payal">Silver Payal (Anklet)</a><div class="price">₹249 <span class="old">₹499</span></div><button class="add" onclick="openOrder('Silver Payal (Anklet)')">Buy Now — UPI</button></div></div><div class="product"><div class="pic"><span class="pill">TRENDING</span><button class="heart" onclick="toast('Added to wishlist ❤️')">♡</button><a href="product.html?product=kurti"><img src="kurti.jpg" alt="Black Printed Women's Kurti"></a></div><div class="info"><div class="rating">⭐ 4.7 (96)</div><a class="name" href="product.html?product=kurti">Black Printed Women's Kurti</a><div class="price">₹699 <span class="old">₹999</span></div><button class="add" onclick="openOrder('Black Printed Women\'s Kurti')">Buy Now — UPI</button></div></div>
+</div></section>
+
+<section class="section" id="offers"><div class="deal"><div><h2>🔥 Special Deals Every Day</h2><p>Save more on selected products. Limited-time offers available.</p></div><a class="btn" href="#shop">Explore Deals</a></div></section>
+
+<section class="section" id="features"><div class="titleRow"><div><h2>Why Shop With BM Bazar?</h2><p>A smoother way to shop online</p></div></div>
+<div class="features">
+<div class="feature"><div class="ico">🚚</div><b>Fast Delivery</b><span>Quick and reliable delivery across available locations.</span></div>
+<div class="feature"><div class="ico">💵</div><b>UPI Payment</b><span>Pay safely at the time of delivery where available.</span></div>
+<div class="feature"><div class="ico">🔒</div><b>Secure Checkout</b><span>Designed for a safe and simple shopping experience.</span></div>
+<div class="feature"><div class="ico">💬</div><b>Helpful Support</b><span>We're here to help with your orders and questions.</span></div>
+</div></section>
+
+<section class="section"><div class="news"><div><h2>Get the latest deals</h2><p>Subscribe for new arrivals and special offers.</p></div><div class="newsletter"><input placeholder="Enter your email"><button onclick="toast('Thanks for subscribing! 🎉')">Subscribe</button></div></div></section>
+
+<footer id="contact"><div class="foot">
+<div><h3>BM Bazar</h3><p>Everything You Need, In One Place.</p><p>© 2026 BM Bazar</p></div>
+<div><h3>Quick Links</h3><a href="#shop">Shop</a><a href="#categories">Categories</a><a href="#offers">Offers</a></div>
+<div><h3>Customer Care</h3><a href="#">Track Order</a><a href="#">Returns</a><a href="#">FAQ</a></div>
+<div><h3>Contact</h3><p>📱 WhatsApp: 7890670548</p><p>✉️ Email: Add Email</p></div>
+</div><div class="copy">BM Bazar • Online Shopping Store</div></footer>
+
+<div class="modal" id="orderModal">
+<div class="modalCard">
+<button class="close" onclick="closeOrder()">×</button>
+<div class="modalTitle">📦 Place UPI Order</div>
+<div class="modalSub" id="orderProduct">Product</div>
+<form onsubmit="submitOrder(event)">
+<input id="customerName" required placeholder="Your Name">
+<input id="customerPhone" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="Mobile Number">
+<textarea id="customerAddress" required rows="3" placeholder="Full Delivery Address"></textarea>
+<input id="customerPin" required inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="PIN Code">
+<div class="codBox">💵 UPI Payment</div>
+<button class="btn orderBtn" type="submit">Confirm Order →</button>
+</form></div></div>
+<div class="toast" id="toast"></div>
+<script>
+let cart=0, selectedProduct='';
+function addCart(name){cart++;document.getElementById('count').textContent=cart;toast((name||'Product')+' added to cart 🛒')}
+function showCart(){toast(cart?`You have ${cart} item(s) in your cart.`:'Your cart is empty.')}
+function openOrder(product){selectedProduct=product;document.getElementById('orderProduct').textContent=product;document.getElementById('orderModal').classList.add('show')}
+function closeOrder(){document.getElementById('orderModal').classList.remove('show')}
+function submitOrder(e){
+ e.preventDefault();
+ const name=document.getElementById('customerName').value.trim();
+ const phone=document.getElementById('customerPhone').value.trim();
+ const address=document.getElementById('customerAddress').value.trim();
+ const pin=document.getElementById('customerPin').value.trim();
+ const utr=document.getElementById('homeUtr').value.trim();if(!utr){alert('Please enter the UTR / Transaction Number after payment.');return}const msg=`*BM Bazar UPI Order*%0A%0A*Product:* ${encodeURIComponent(selectedProduct)}%0A*Name:* ${encodeURIComponent(name)}%0A*Mobile:* ${encodeURIComponent(phone)}%0A*Address:* ${encodeURIComponent(address)}%0A*PIN:* ${encodeURIComponent(pin)}%0A*Payment:* UPI Payment%0A*UPI ID:* 7890670548@nyes%0A*UTR:* ${encodeURIComponent(utr)}`;
+ window.open('https://wa.me/917890670548?text='+msg,'_blank');
+ closeOrder(); toast('Order details opened in WhatsApp 📲');
+}
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',1800)}
+function searchProduct(){const q=document.getElementById('search').value.trim();if(q)toast('Searching for: '+q);else toast('Type a product name to search.')}
+document.getElementById('orderModal').addEventListener('click',e=>{if(e.target.id==='orderModal')closeOrder()});
+if(document.getElementById('homeUpiQr')){const l='upi://pay?pa=7890670548@nyes&pn=BM%20Bazar&cu=INR';document.getElementById('homeUpiQr').src='https://quickchart.io/qr?size=260&text='+encodeURIComponent(l);document.getElementById('homeUpiApp').href=l;}</script></body></html>

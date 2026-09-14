@@ -46,6 +46,7 @@ footer{background:#111318;color:#fff;margin-top:42px}.foot{max-width:1240px;marg
 <div class="titleRow"><div><h2>Trending Products</h2><p>Popular picks customers love</p></div><a class="see" href="#">View all →</a></div>
 <div class="products">
 <div class="product"><div class="pic"><span class="pill">BEST SELLER</span><button class="heart" onclick="toast('Added to wishlist ❤️')">♡</button><a href="product.html?product=watch"><img src="watch.jpg" alt="Rose Gold Elegant Ladies Watch"></a></div><div class="info"><div class="rating">⭐ 4.8 (124)</div><a class="name" href="product.html?product=watch">Rose Gold Elegant Ladies Watch</a><div class="price">₹799 <span class="old">₹1,499</span></div><button class="add" onclick="openOrder('Rose Gold Elegant Ladies Watch')">Buy Now — UPI</button></div></div>
+<div class="product"><div class="pic"><span class="pill">NEW ARRIVAL</span><button class="heart" onclick="toast('Added to wishlist ❤️')">♡</button><a href="product.html?product=payal"><img src="payal.jpg" alt="Silver Payal (Anklet)"></a></div><div class="info"><div class="rating">⭐ 4.8 (124)</div><a class="name" href="product.html?product=payal">Silver Payal (Anklet)</a><div class="price">₹249 <span class="old">₹499</span></div><button class="add" onclick="openOrder('Silver Payal (Anklet)')">Buy Now — UPI</button></div></div>
 <div class="product"><div class="pic"><span class="pill">TRENDING</span><button class="heart" onclick="toast('Added to wishlist ❤️')">♡</button><a href="product.html?product=kurti"><img src="kurti.jpg" alt="Black Printed Women's Kurti"></a></div><div class="info"><div class="rating">⭐ 4.7 (96)</div><a class="name" href="product.html?product=kurti">Black Printed Women's Kurti</a><div class="price">₹699 <span class="old">₹999</span></div><button class="add" onclick="openOrder('Black Printed Women\'s Kurti')">Buy Now — UPI</button></div></div>
 </div></section>
 
@@ -73,13 +74,14 @@ footer{background:#111318;color:#fff;margin-top:42px}.foot{max-width:1240px;marg
 <button class="close" onclick="closeOrder()">×</button>
 <div class="modalTitle">📦 Place UPI Order</div>
 <div class="modalSub" id="orderProduct">Product</div>
-<form onsubmit="submitOrder(event)">
+<form onsubmit="startPayment(event)">
 <input id="customerName" required placeholder="Your Name">
 <input id="customerPhone" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="Mobile Number">
 <textarea id="customerAddress" required rows="3" placeholder="Full Delivery Address"></textarea>
 <input id="customerPin" required inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="PIN Code">
-<div class="codBox">💵 UPI Payment</div>
-<button class="btn orderBtn" type="submit">Confirm Order →</button>
+<div class="codBox">💳 Step 1: Pay with UPI</div>
+<a id="homePayBtn" class="btn orderBtn" href="#" onclick="payFirst(event)">📱 Pay Now with UPI</a>
+<div id="homeConfirm" style="display:none;margin-top:12px"><div class="codBox">✅ Step 2: After payment, confirm your order</div><button class="btn orderBtn" type="button" onclick="confirmWhatsApp()">💬 Confirm Order on WhatsApp</button></div>
 </form></div></div>
 <div class="toast" id="toast"></div>
 <script>
@@ -88,15 +90,21 @@ function addCart(name){cart++;document.getElementById('count').textContent=cart;
 function showCart(){toast(cart?`You have ${cart} item(s) in your cart.`:'Your cart is empty.')}
 function openOrder(product){selectedProduct=product;document.getElementById('orderProduct').textContent=product;document.getElementById('orderModal').classList.add('show')}
 function closeOrder(){document.getElementById('orderModal').classList.remove('show')}
-function submitOrder(e){
- e.preventDefault();
+function startPayment(e){e.preventDefault(); payFirst(e)}
+function payFirst(e){if(e)e.preventDefault();
  const name=document.getElementById('customerName').value.trim();
  const phone=document.getElementById('customerPhone').value.trim();
  const address=document.getElementById('customerAddress').value.trim();
  const pin=document.getElementById('customerPin').value.trim();
- const msg=`*BM Bazar UPI Order*%0A%0A*Product:* ${encodeURIComponent(selectedProduct)}%0A*Name:* ${encodeURIComponent(name)}%0A*Mobile:* ${encodeURIComponent(phone)}%0A*Address:* ${encodeURIComponent(address)}%0A*PIN:* ${encodeURIComponent(pin)}%0A*Payment:* UPI Payment%0A*UPI ID:* 7890670548@nyes`;
- window.open('https://wa.me/917890670548?text='+msg,'_blank');
- closeOrder(); toast('Order details opened in WhatsApp 📲');
+ if(!name||!phone||!address||!pin){document.querySelector('#orderModal form').reportValidity();return;}
+ const l='upi://pay?pa=7890670548@nyes&pn=BM%20Bazar&cu=INR';
+ window.location.href=l;
+ document.getElementById('homeConfirm').style.display='block';
+}
+function confirmWhatsApp(){
+ const name=document.getElementById('customerName').value.trim(),phone=document.getElementById('customerPhone').value.trim(),address=document.getElementById('customerAddress').value.trim(),pin=document.getElementById('customerPin').value.trim();
+ const msg=`*BM Bazar UPI Order*%0A%0A*Product:* ${encodeURIComponent(selectedProduct)}%0A*Name:* ${encodeURIComponent(name)}%0A*Mobile:* ${encodeURIComponent(phone)}%0A*Address:* ${encodeURIComponent(address)}%0A*PIN:* ${encodeURIComponent(pin)}%0A*Payment:* UPI Payment`;
+ window.open('https://wa.me/917890670548?text='+msg,'_blank'); closeOrder(); toast('Order confirmation opened in WhatsApp 📲');
 }
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',1800)}
 function searchProduct(){const q=document.getElementById('search').value.trim();if(q)toast('Searching for: '+q);else toast('Type a product name to search.')}
